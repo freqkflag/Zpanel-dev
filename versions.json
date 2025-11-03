@@ -1,0 +1,19 @@
+{
+    "zpanel": {
+        "v4": {
+            "version": "4.0.0-beta.438"
+        },
+        "nightly": {
+            "version": "4.0.0-beta.439"
+        },
+        "helper": {
+            "version": "1.0.11"
+        },
+        "realtime": {
+            "version": "1.0.10"
+        },
+        "sentinel": {
+            "version": "0.0.16"
+        }
+    }
+}

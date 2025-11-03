@@ -1,0 +1,37 @@
+services:
+    zpanel:
+        container_name: zpanel
+        restart: always
+        working_dir: /var/www/html
+        extra_hosts:
+            - host.docker.internal:host-gateway
+        networks:
+            - zpanel
+        depends_on:
+            - postgres
+            - redis
+            - soketi
+    postgres:
+        image: postgres:15-alpine
+        container_name: zpanel-db
+        restart: always
+        networks:
+            - zpanel
+    redis:
+        image: redis:7-alpine
+        container_name: zpanel-redis
+        restart: always
+        networks:
+            - zpanel
+    soketi:
+        container_name: zpanel-realtime
+        extra_hosts:
+            - host.docker.internal:host-gateway
+        restart: always
+        networks:
+            - zpanel
+networks:
+    zpanel:
+        name: zpanel
+        driver: bridge
+        external: false
